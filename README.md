@@ -12,8 +12,8 @@ System property `"javax.xml.transform.TransformerFactory"`.
 It uses [saxon](http://saxon.sourceforge.net/) with a [java extension](https://github.com/bwagner/LiblouisSaxonExtension)
 that offers translating text into braille using [liblouis](http://code.google.com/p/liblouis/).
 
-1. Usage command line tools
----------------------------
+Usage command line tools
+------------------------
 
     cd dtbooksbsform
     ./dtbook2sbsform.sh dtbook.xml
@@ -29,15 +29,16 @@ calls saxon, offering its rich command line interface, includes our extension fu
     
 breaks lines according to sbs rules: only lines beginning with a blank will be broken. Line width is 80 chars.
 
-2. Usage org.liblouis.LouisExtensionTransformerFactoryImpl
-----------------------------------------------------------
+Usage org.liblouis.LouisExtensionTransformerFactoryImpl
+-------------------------------------------------------
+
     java -Djavax.xml.transform.sax.SAXTransformerFactory YourAppThatUsesJaxp
 
 Examples can be found in the xsl tests which are performed using
 [utf-x](http://utf-x.sourceforge.net/) (we're using the svn version, which has been ported to work with saxon9he).
 See utfx.sh shell script. 
 
-3. Prerequisite installs
+Prerequisite installs
 ------------------------
 
 * [java](http://java.sun.com)
