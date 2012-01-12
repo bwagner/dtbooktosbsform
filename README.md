@@ -17,13 +17,16 @@ that offers translating text into braille using [liblouis](http://code.google.co
 
     cd dtbooksbsform
     ./dtbook2sbsform.sh dtbook.xml
+    
 calls `saxon.sh`, transforms `dtbook.xml` and performs line breaking using `linebreak.sh` printing output onto stdout.
 
     ./saxon.sh
+    
 calls saxon, offering its rich command line interface, includes our extension function
 (see `resources/xsl/dtbook2sbsform.xsl`).
 
     ./linebreak.sh
+    
 breaks lines according to sbs rules: only lines beginning with a blank will be broken. Line width is 80 chars.
 
 2. Usage org.liblouis.LouisExtensionTransformerFactoryImpl
@@ -36,5 +39,6 @@ See utfx.sh shell script.
 
 3. Prerequisite installs
 ------------------------
+
 * [java](http://java.sun.com)
 * [liblouis](http://code.google.com/p/liblouis/)
