@@ -1,2 +1,5 @@
 .settings/
-bin/
+/bin/
+/utfx_log.xml
+/linebreaker.jar
+/dtbooktosbsform.zip
