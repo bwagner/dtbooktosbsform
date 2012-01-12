@@ -25,6 +25,9 @@
 	<property name="test_src.dir" value="test_src" />
 	<property name="lib.dir" value="lib" />
 	<property name="zipfile" value="${app.name}.zip" />
+	
+	<!-- used for utfx -->
+	<property name="testrunner" value="utfx.runner.TestRunner" />
 
     <presetdef name="my.javac">
 		<javac includeantruntime="false" />
@@ -62,7 +65,7 @@
 		</my.javac>
 	</target>
 
-	<target name="test" depends="compile" description="test">
+	<target name="src_test" depends="compile" description="run src test">
 		<junit printsummary="yes" fork="yes" haltonfailure="no" haltonerror="no">
 
 			<formatter type="plain" usefile="false" />
@@ -86,6 +89,28 @@
 			</batchtest>
 		</junit>
 	</target>
+	
+	<path id="runtime.classpath">
+		<pathelement location="lib/saxon9he.jar"/>
+		<pathelement location="lib/louis.jar"/>
+		<pathelement location="lib/jna.jar"/>
+		<pathelement location="lib/liblouissaxonx.jar"/>
+		<pathelement location="lib/utfxFat.jar"/>
+		<pathelement location="."/>
+	</path>
+	
+	<target name="utfx" description="run utfx tests">
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-enableassertions" />
+			<jvmarg value="-Xmx128m" />
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=org.liblouis.transformerfactory.LouisExtensionTransformerFactoryImpl" />
+			<jvmarg value="-Dutfx.test.dir=test_xsl" />
+			<arg value="utfx.framework.XSLTRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+	</target>
+	
+	<target name="test" depends="src_test, utfx" description="run src_test and utfx_tests"/>
 
 	<target name="clean" description="clean">
 		<delete dir="${build.dir}" />
