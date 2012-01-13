@@ -1,4 +1,4 @@
-dtbooktosbsform
+dtbook2sbsform
 ===============
 
 This project provides:
@@ -10,7 +10,7 @@ that offers translating text into braille using [liblouis](http://code.google.co
 Usage command line tools
 ------------------------
 
-    cd dtbooksbsform
+    cd dtbook2sbsform
     ./dtbook2sbsform.sh dtbook.xml
     
 calls `saxon.sh`, transforms `dtbook.xml` and performs line breaking using `linebreak.sh` printing output onto stdout.

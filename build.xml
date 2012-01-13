@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="dtbooktosbsform" default="default" basedir=".">
+<project name="dtbook2sbsform" default="default" basedir=".">
 
 	<!-- Copyright (C) 2010 Swiss Library for the Blind, Visually Impaired and Print Disabled -->
 
-	<!-- This file is part of dtbooktosbsform. -->
+	<!-- This file is part of dtbook2sbsform. -->
 
-	<!-- dtbooktosbsform is free software: you can redistribute it -->
+	<!-- dtbook2sbsform is free software: you can redistribute it -->
 	<!-- and/or modify it under the terms of the GNU Lesser General Public -->
 	<!-- License as published by the Free Software Foundation, either -->
 	<!-- version 3 of the License, or (at your option) any later version. -->
