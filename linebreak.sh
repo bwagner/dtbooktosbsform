@@ -1,9 +1,9 @@
 
 # Copyright (C) 2010 Swiss Library for the Blind, Visually Impaired and Print Disabled
 #
-# This file is part of dtbooksbsform.
+# This file is part of dtbook2sbsform.
 #
-# dtbooksbsform is free software: you can redistribute it
+# dtbook2sbsform is free software: you can redistribute it
 # and/or modify it under the terms of the GNU Lesser General Public
 # License as published by the Free Software Foundation, either
 # version 3 of the License, or (at your option) any later version.
@@ -19,6 +19,6 @@
 
 # Set classpath
 DIR=`dirname $0`
-CP=$DIR/liblouissaxonx.jar
+CP=$DIR/linebreaker.jar
 
 java -cp $CP ch.sbs.liblouis.utils.LineBreaker "$@"
