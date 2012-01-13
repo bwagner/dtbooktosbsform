@@ -275,17 +275,23 @@
         </xsl:if>
         <xsl:if test="$actual_contraction = '2' and $context != 'num_roman'">
           <xsl:if test="$context = 'place'">
-	    <xsl:if test="$use_local_dictionary = true()">
-	      <xsl:value-of select="concat('sbs-de-g2-place-white-',$document_identifier,'.mod,')"/>
+	    <xsl:if test="$hyphenation = true()">
+	      <xsl:if test="$use_local_dictionary = true()">
+		<xsl:value-of select="concat('sbs-de-g2-place-white-',$document_identifier,'.mod,')"/>
+	      </xsl:if>
+	      <xsl:text>sbs-de-g2-place-white.mod,</xsl:text>
 	    </xsl:if>
             <xsl:text>sbs-de-g2-place.mod,</xsl:text>
           </xsl:if>
           <xsl:if test="$context = 'place' or $context = 'name'">
-	    <xsl:if test="$use_local_dictionary = true()">
-	      <xsl:value-of select="concat('sbs-de-g2-name-white-',$document_identifier,'.mod,')"/>
+	    <xsl:if test="$hyphenation = true()">
+	      <xsl:if test="$use_local_dictionary = true()">
+		<xsl:value-of select="concat('sbs-de-g2-name-white-',$document_identifier,'.mod,')"/>
+	      </xsl:if>
+	      <xsl:text>sbs-de-g2-name-white.mod,</xsl:text>
 	    </xsl:if>
-            <xsl:text>sbs-de-g2-name.mod,</xsl:text>
-          </xsl:if>
+	    <xsl:text>sbs-de-g2-name.mod,</xsl:text>
+	  </xsl:if>
           <xsl:if
             test="$context != 'name' and $context != 'name_capitalized' and $context != 'place' and ($context != 'abbr' or  my:containsDot(.)) and $context != 'date_day' and $context != 'date_month'">
             <xsl:if test="$hyphenation = true()">
