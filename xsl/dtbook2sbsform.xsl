@@ -276,13 +276,13 @@
         <xsl:if test="$actual_contraction = '2' and $context != 'num_roman'">
           <xsl:if test="$context = 'place'">
 	    <xsl:if test="$use_local_dictionary = true()">
-	      <xsl:value-of select="concat('sbs-de-g2-place-',$document_identifier,'.mod,')"/>
+	      <xsl:value-of select="concat('sbs-de-g2-place-white-',$document_identifier,'.mod,')"/>
 	    </xsl:if>
             <xsl:text>sbs-de-g2-place.mod,</xsl:text>
           </xsl:if>
           <xsl:if test="$context = 'place' or $context = 'name'">
 	    <xsl:if test="$use_local_dictionary = true()">
-	      <xsl:value-of select="concat('sbs-de-g2-name-',$document_identifier,'.mod,')"/>
+	      <xsl:value-of select="concat('sbs-de-g2-name-white-',$document_identifier,'.mod,')"/>
 	    </xsl:if>
             <xsl:text>sbs-de-g2-name.mod,</xsl:text>
           </xsl:if>
