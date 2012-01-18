@@ -264,7 +264,7 @@
           <xsl:text>sbs-de-g0-core.mod,</xsl:text>
         </xsl:if>
         <xsl:if
-          test="$actual_contraction = '1' and $context != 'num_roman' and ($context != 'name_capitalized' and ($context != 'abbr' or my:containsDot(.)) and $context != 'date_month' and $context != 'date_day')">
+          test="$actual_contraction = '1' and $context != 'a' and $context != 'num_roman' and ($context != 'name_capitalized' and ($context != 'abbr' or my:containsDot(.)) and $context != 'date_month' and $context != 'date_day')">
           <xsl:if test="$hyphenation = true()">
 	    <xsl:if test="$use_local_dictionary = true()">
 	      <xsl:value-of select="concat('sbs-de-g1-white-',$document_identifier,'.mod,')"/>
@@ -273,7 +273,7 @@
           </xsl:if>
           <xsl:text>sbs-de-g1-core.mod,</xsl:text>
         </xsl:if>
-        <xsl:if test="$actual_contraction = '2' and $context != 'num_roman'">
+        <xsl:if test="$actual_contraction = '2' and $context != 'a' and $context != 'num_roman'">
           <xsl:if test="$context = 'place'">
 	    <xsl:if test="$hyphenation = true()">
 	      <xsl:if test="$use_local_dictionary = true()">
@@ -1879,6 +1879,23 @@ i f=1 l=1
 
   <xsl:template match="dtb:abbr">
     <xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="dtb:a">
+    <xsl:variable name="braille_tables">
+      <xsl:call-template name="getTable"/>
+    </xsl:variable>
+    <xsl:value-of select="louis:translate(string($braille_tables), '&#x257C;')"/>
+    <xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="dtb:a/text()">
+    <xsl:variable name="braille_tables">
+      <xsl:call-template name="getTable">
+	<xsl:with-param name="context" select="'a'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:value-of select="louis:translate(string($braille_tables), string())"/>
   </xsl:template>
 
   <xsl:template match="dtb:div">
